@@ -1,4 +1,4 @@
-import { NumberSplit } from './../../.tmp/pipes/number-split';
+import { NumberSplit } from '../pipes/number-split';
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
