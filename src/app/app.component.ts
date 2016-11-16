@@ -1,6 +1,7 @@
 import { Auth } from '@ionic/cloud-angular';
 import { HomePage } from './../pages/home/home';
 import { LoginPage } from './../pages/login/login';
+import { CardIoPage } from '../pages/card-io/card-io';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
@@ -14,6 +15,7 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
+
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public auth: Auth) {
@@ -21,7 +23,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      {title: 'Home',component: HomePage}
+      { title: 'Home', component: HomePage },
+      { title: 'CardIO', component: CardIoPage }
     ];
 
   }
