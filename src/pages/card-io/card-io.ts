@@ -15,10 +15,22 @@ import { CardIO } from 'ionic-native';
 })
 export class CardIoPage {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) { }
+  cards: any;
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) { 
+    this.cards = [];
+  }
 
   ionViewDidLoad() {
     console.log('Hello CardIoPage Page');
+  }
+
+  flipCard(card) {
+    if (card.hover) {
+      card.hover = false;
+    } else {
+      card.hover = true;
+    }
   }
 
   scanCard() {
@@ -29,10 +41,10 @@ export class CardIoPage {
           CardIO.scan({
             requireExpiry: true,
             requireCCV: true,
-            requirePostalCode: true,
+            requirePostalCode: false,
             requireCardholderName: true,
             hideCardIOLogo: true
-          }).then(this.scanSuccess, this.scanError)
+          }).then(this.scanSuccess.bind(this), this.scanError)
         } else {
           let alert = this.alertCtrl.create({
             title: 'CardIO',
@@ -45,6 +57,7 @@ export class CardIoPage {
   }
 
   scanSuccess(card) {
+    this.cards.push(card);
     console.log(card)
   }
 
