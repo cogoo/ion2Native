@@ -1,7 +1,7 @@
 import { Auth } from '@ionic/cloud-angular';
 import { HomePage } from './../pages/home/home';
 import { LoginPage } from './../pages/login/login';
-import { CardIoPage } from '../pages/card-io/card-io';
+import { CardIoPage } from './../pages/card-io/card-io';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';

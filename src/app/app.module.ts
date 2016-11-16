@@ -1,9 +1,8 @@
-
 import { NumberSplit } from './../pipes/number-split';
 
 import { HomePage } from './../pages/home/home';
 import { LoginPage } from './../pages/login/login';
-import { CardIoPage } from '../pages/card-io/card-io';
+import { CardIoPage } from './../pages/card-io/card-io';
 
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
