@@ -1,3 +1,4 @@
+import { Auth } from '@ionic/cloud-angular';
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
@@ -17,12 +18,21 @@ export class CardIoPage {
 
   cards: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) { 
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public auth: Auth) { 
     this.cards = [];
   }
 
   ionViewDidLoad() {
-    console.log('Hello CardIoPage Page');
+
+  }
+
+  // Auth Guard
+  ionViewCanEnter(){
+    if (this.auth.isAuthenticated()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   flipCard(card) {
