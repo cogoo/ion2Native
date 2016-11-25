@@ -6,31 +6,32 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Card IO</ion-title>
-  </ion-navbar>
+        <ion-title>Card IO</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-fab top right edge>
-    <button ion-fab color="vibrant" mini><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list>
-      <button (click)="scanCard()" ion-fab><ion-icon name="card"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
+    <ion-fab top right edge>
+        <button ion-fab color="vibrant" mini><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list>
+            <button (click)="scanCard()" ion-fab><ion-icon name="card"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
 
-  <section *ngFor="let card of cards" >
-    <div class="credit-card-box" [class.hover]="card.hover" (click)="flipCard(card)">
+    <section *ngFor="let card of cards">
+        <div class="credit-card-box" [class.hover]="card.hover" (tap)="flipCard(card)">
             <div class="flip">
                 <div class="front">
                     <div class="chip"></div>
                     <div class="logo">
-                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
                             <g>
                                 <g>
                                     <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
@@ -61,7 +62,8 @@
                 <div class="back">
                     <div class="strip"></div>
                     <div class="logo">
-                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
                             <g>
                                 <g>
                                     <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
@@ -85,6 +87,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
-  </section>
+
+        <button ion-button color="secondary" (click)="getAmount(card)">Pay</button>
+    </section>
 </ion-content>
