@@ -2,7 +2,7 @@ import { Stripe } from './../../providers/stripe';
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { CardIO } from 'ionic-native';
+import { CardIO } from '@ionic-native/card-io';
 
 /*
   Generated class for the CardIo page.
@@ -41,7 +41,8 @@ export class CardIoPage {
     public alertCtrl: AlertController,
     public cardStore: Storage,
     public stripe: Stripe,
-    public loadCtrl: LoadingController
+    public loadCtrl: LoadingController,
+    public cardIo: CardIO
   ) {
 
     this.cardStore.get('cards')
@@ -63,13 +64,13 @@ export class CardIoPage {
   }
 
   scanCard() {
-    CardIO.canScan()
+    this.cardIo.canScan()
       .then(
       (res: boolean) => {
         if (res) {
-          CardIO.scan({
+          this.cardIo.scan({
             requireExpiry: true,
-            requireCCV: true,
+            requireCVV: true,
             requirePostalCode: false,
             requireCardholderName: true,
             hideCardIOLogo: true
