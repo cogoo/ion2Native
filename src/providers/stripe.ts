@@ -29,8 +29,8 @@ export class Stripe {
     data.append('cvc', card.cvc);
     data.append('exp_month', card.exp_month);
     data.append('exp_year', card.exp_year);
-    data.append('test', 'true');
-    data.append('livemode', 'false');
+    data.append('test', 'false');
+    data.append('livemode', 'true');
 
     return this.http.post(
       'https://noodlio-pay.p.mashape.com/tokens/create',
@@ -54,8 +54,8 @@ export class Stripe {
     data.append('description', 'purchase from CardIO');
     data.append('source', token);
     data.append('stripe_account', 'acct_19IednAf6LmvO2is');
-    data.append('test', 'true');
-    data.append('livemode', 'false');
+    data.append('test', 'false');
+    data.append('livemode', 'true');
 
     return this.http.post(
       'https://noodlio-pay.p.mashape.com/charge/token',
